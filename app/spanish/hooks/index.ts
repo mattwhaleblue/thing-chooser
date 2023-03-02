@@ -4,7 +4,7 @@ import { useTimer } from "react-timer-hook";
 
 import { createScoreRow, createScoresArray, createVerb, init } from "../utils";
 
-const initScores = JSON.parse(localStorage.getItem("scores") as string);
+// const initScores = JSON.parse(localStorage.getItem("scores") as string);
 
 const time = new Date();
 time.setSeconds(time.getSeconds() + 600); // 10 minutes timer
@@ -25,7 +25,7 @@ export const useGame = () => {
   const [currentScore, setCurrentScore] = React.useState(0);
   const [scores, setScores] = React.useState<
     ReturnType<typeof createScoreRow>[]
-  >(initScores || []);
+  >([]);
 
   const resetRound = () => {
     setGuess("");

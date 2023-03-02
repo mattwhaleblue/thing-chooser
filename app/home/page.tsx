@@ -50,7 +50,7 @@ const Page = () => {
   };
 
   return (
-    <div className="flex flex-col space-y-4 justify-center">
+    <div className="flex flex-col space-y-4 justify-center p-4">
       <h1 className="text-6xl font-bold">THING CHOOSER</h1>
 
       <label htmlFor="two" className="flex flex-col">
@@ -108,7 +108,7 @@ const Page = () => {
       )}
 
       {result.loading === false && result.data.url1 && result.data.url2 && (
-        <div className="text-white flex flex-col gap-4 p-4 border-2 border-white rounded-lg">
+        <div className="text-white flex flex-col md:flex-row gap-4 p-4 border-2 border-white rounded-lg ">
           <p>Here are some pictures to help you decide:</p>
           <img src={result.data.url1} alt="" className="w-96" />
           <img src={result.data.url2} alt="" className="w-96" />
