@@ -51,7 +51,7 @@ const Page = () => {
 
   return (
     <div className="flex flex-col space-y-4 justify-center p-4 w-full md:px-64 md:py-4">
-      <h1 className="text-6xl font-bold">THING CHOOSER</h1>
+      <h1 className="text-4xl md:text-6xl font-bold">THING CHOOSER</h1>
 
       <label htmlFor="two" className="flex flex-col">
         <small>THING ONE</small>
