@@ -1,6 +1,6 @@
 import React from "react";
 
-const Layout = ({ children }: React.ComponentProps<"div">) => {
+const Layout = ({ children }: any) => {
   return <div className="flex justify-center">{children}</div>;
 };
 
