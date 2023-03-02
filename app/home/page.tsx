@@ -50,7 +50,7 @@ const Page = () => {
   };
 
   return (
-    <div className="flex flex-col space-y-4 justify-center p-4">
+    <div className="flex flex-col space-y-4 justify-center p-4 w-full md:px-64 md:py-4">
       <h1 className="text-6xl font-bold">THING CHOOSER</h1>
 
       <label htmlFor="two" className="flex flex-col">
@@ -59,7 +59,7 @@ const Page = () => {
           type="text"
           placeholder="Enter a thing..."
           value={one}
-          className="mt-2 h-12 w-96 rounded-lg border-2 border-white bg-transparent overflow-hidden px-4"
+          className="mt-2 h-12 w-full md:w-96 rounded-lg border-2 border-white bg-transparent overflow-hidden px-4"
           onChange={(e) => setThings({ ...things, one: e.target.value })}
         />
       </label>
@@ -69,11 +69,11 @@ const Page = () => {
           type="text"
           placeholder="Enter a thing another..."
           value={two}
-          className="mt-2 h-12 w-96 rounded-lg border-2 border-white bg-transparent overflow-hidden px-4"
+          className="mt-2 h-12 w-full md:w-96 rounded-lg border-2 border-white bg-transparent overflow-hidden px-4"
           onChange={(e) => setThings({ ...things, two: e.target.value })}
         />
       </label>
-      <div className="flex gap-4 w-96">
+      <div className="flex flex-col md:flex-row gap-4 w-full md:w-96">
         <button
           className="bg-white text-slate-800 rounded-lg py-3 px-6 w-full"
           onClick={onClick}
