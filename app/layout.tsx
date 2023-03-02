@@ -1,12 +1,13 @@
-import "./globals.css";
-import React from "react";
+import "./global.css";
 
-const Layout = ({ children }: React.ComponentProps<"div">) => {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en">
-      <body className=" bg-slate-800 text-white min-h-screen">{children}</body>
+      <body>{children}</body>
     </html>
   );
-};
-
-export default Layout;
+}
