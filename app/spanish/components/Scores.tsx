@@ -2,13 +2,22 @@ import { createScoresArray } from "../utils";
 
 type Props = {
   currentScore: number;
+  inARow: number;
   scores: ReturnType<typeof createScoresArray>;
 };
 
-export const Scores = ({ currentScore, scores }: Props) => {
+export const Scores = ({ inARow, currentScore, scores }: Props) => {
   const topScore = scores.reduce((acc, curr) => {
     if (curr.score > acc) {
       return curr.score;
+    }
+
+    return acc;
+  }, 0);
+
+  const topInARow = scores.reduce((acc, curr) => {
+    if (curr.inARow > acc) {
+      return curr.inARow;
     }
 
     return acc;
@@ -22,15 +31,25 @@ export const Scores = ({ currentScore, scores }: Props) => {
         <p className="text-xl">Current Score</p>
         <p
           className={
-            currentScore >= 0 ? "text-green-400 text-6xl" : "text-red-400 text-6xl"
+            currentScore >= 0
+              ? "text-green-400 text-6xl"
+              : "text-red-400 text-6xl"
           }
         >
           {currentScore}
         </p>
       </div>
       <div className="space-y-2">
+        <p className="text-xl">In A Row</p>
+        <p className="text-6xl">{inARow}</p>
+      </div>
+      <div className="space-y-2">
         <p className="text-xl">Top Score</p>
         <p className="text-6xl">{topScore}</p>
+      </div>
+      <div className="space-y-2">
+        <p className="text-xl">Top In A Row</p>
+        <p className="text-6xl">{topInARow}</p>
       </div>
       <div className="space-y-2">
         <p className="text-xl">Total Time Played</p>

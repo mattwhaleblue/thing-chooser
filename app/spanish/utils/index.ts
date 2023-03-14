@@ -1,6 +1,8 @@
 import { v4 as uuid } from "uuid";
 
-import { data } from "../data";
+import { verbs, otherVerbs } from "../data";
+
+const data = [...verbs, ...otherVerbs];
 
 export const createVerb = () => {
   const result = data[Math.floor(Math.random() * data.length)];
@@ -24,9 +26,10 @@ export const init: ReturnType<typeof createVerb> = {
   conjugation: "ellos",
 };
 
-export const createScoreRow = (score: number) => {
+export const createScoreRow = (score: number, inARow: number) => {
   return {
     id: uuid(),
+    inARow,
     score,
     date: new Date().toDateString(),
   };
@@ -34,9 +37,10 @@ export const createScoreRow = (score: number) => {
 
 export const createScoresArray = (
   score: number,
+  inARow: number,
   prev: ReturnType<typeof createScoreRow>[]
 ) => {
-  const newArr = [...prev, createScoreRow(score)];
+  const newArr = [...prev, createScoreRow(score, inARow)];
 
   const sortedArr = newArr.sort((a, b) => b.score - a.score);
   localStorage.setItem("scores", JSON.stringify(sortedArr));

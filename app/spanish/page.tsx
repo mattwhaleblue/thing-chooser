@@ -10,6 +10,7 @@ const Page = () => {
     timeRemaining,
     isRunning,
     currentScore,
+    inARow,
     scores,
     verb,
     guess,
@@ -54,7 +55,7 @@ const Page = () => {
 
       <hr />
 
-      <Scores currentScore={currentScore} scores={scores} />
+      <Scores currentScore={currentScore} inARow={inARow} scores={scores} />
     </div>
   );
 };
