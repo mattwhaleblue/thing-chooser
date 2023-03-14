@@ -7,7 +7,7 @@ import { createScoreRow, createScoresArray, createVerb, init } from "../utils";
 // const initScores = JSON.parse(localStorage.getItem("scores") as string);
 // const initWrong = JSON.parse(localStorage.getItem("wrong") as string) || [];
 const initScores = "";
-const initWrong = [""];
+const initWrong: typeof init[] = [];
 
 const time = new Date();
 time.setSeconds(time.getSeconds() + 600); // 10 minutes timer
