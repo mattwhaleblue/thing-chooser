@@ -7,6 +7,16 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 function generatePrompt(one: string, two: string) {
+  if (
+    one.includes("bar") ||
+    two.includes("bar") ||
+    one.includes("bed") ||
+    two.includes("bed") ||
+    one.toLowerCase().includes("matt") ||
+    two.toLowerCase().includes("matt")
+  ) {
+    return "Goooo to the bar!!! Then come to Matt's bed!!";
+  }
   if (Math.random() > 0.7) {
     return `
     I'm trying to choose between two thing: ${one} and ${two}, 
