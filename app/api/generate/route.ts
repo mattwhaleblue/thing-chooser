@@ -7,16 +7,6 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 function generatePrompt(one: string, two: string) {
-  if (
-    one.includes("bar") ||
-    two.includes("bar") ||
-    one.includes("bed") ||
-    two.includes("bed") ||
-    one.toLowerCase().includes("matt") ||
-    two.toLowerCase().includes("matt")
-  ) {
-    return "Goooo to the bar!!! Then come to Matt's bed!!";
-  }
   if (Math.random() > 0.7) {
     return `
     I'm trying to choose between two thing: ${one} and ${two}, 
@@ -41,6 +31,35 @@ function generatePrompt(one: string, two: string) {
 export const POST = async (req: NextRequest) => {
   const body = await req.json();
   const { one, two } = body;
+
+  if (
+    one.includes("bar") ||
+    two.includes("bar") ||
+    one.includes("bed") ||
+    two.includes("bed") ||
+    one.toLowerCase().includes("matt") ||
+    two.toLowerCase().includes("matt")
+  ) {
+    const image1 = await openai.createImage({
+      prompt: `${one}`,
+      n: 1,
+      size: "256x256",
+    });
+    const image2 = await openai.createImage({
+      prompt: `${two}`,
+      n: 1,
+      size: "256x256",
+    });
+
+    const url1 = image1.data.data[0].url;
+    const url2 = image2.data.data[0].url;
+
+    return NextResponse.json({
+      result: "Goooo to the bar!!! Then come to Matt's bed!!",
+      url1,
+      url2,
+    });
+  }
 
   try {
     const completion = await openai.createCompletion({
