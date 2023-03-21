@@ -1,4 +1,4 @@
-import { createScoresArray } from "../utils";
+import { createScoresArray } from "./Flash/hooks";
 
 type Props = {
   currentScore: number;
