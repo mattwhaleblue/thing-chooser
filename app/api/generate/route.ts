@@ -7,10 +7,24 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 function generatePrompt(one: string, two: string) {
+  if (Math.random() > 0.7) {
+    return `
+    I'm trying to choose between two thing: ${one} and ${two}, 
+    which should I choose and why? Don't tell me it's up to me, or that you don't know, or it's my decision just give me your answer. 
+    Also add a random fact about something to do with the azores and limit your response to 3 sentences.
+  `;
+  }
+  if (Math.random() > 0.4) {
+    return `
+    I'm trying to choose between two thing: ${one} and ${two}, 
+    which should I choose and why? Don't tell me it's up to me, or that you don't know, or it's my decision just give me your answer. 
+    Also add a random fact about potatoes and limit your response to 3 sentences.
+  `;
+  }
   return `
     I'm trying to choose between two thing: ${one} and ${two}, 
     which should I choose and why? Don't tell me it's up to me, or that you don't know, or it's my decision just give me your answer. 
-    Also add a compliment about my appearance to the end and limit your response to 3 sentences.
+    Also add a compliment about me at the end and limit your response to 3 sentences.
   `;
 }
 
@@ -47,5 +61,11 @@ export const POST = async (req: NextRequest) => {
   } catch (error) {
     // Consider adjusting the error handling logic for your use case
     console.error("Error:", error);
+    return NextResponse.json({
+      result:
+        "Don't ask stupid questions. What the hell is wrong with you. I'm not answering that. You make me sick.",
+      url1: "",
+      url2: "",
+    });
   }
 };

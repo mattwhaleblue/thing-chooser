@@ -1,3 +1,30 @@
+export const data = [
+  {
+    option: "centrábamos",
+    answer: "to focus",
+  },
+  {
+    option: "ganas",
+    answer: "desire",
+  },
+  {
+    option: "parecía",
+    answer: "to seem",
+  },
+  {
+    option: "avanzar",
+    answer: "to advance",
+  },
+  {
+    option: "exigir",
+    answer: "to require",
+  },
+  {
+    option: 'dirigir',
+    answer: 'to lead',
+  }
+];
+
 export const verbs = [
   {
     name: "ser",

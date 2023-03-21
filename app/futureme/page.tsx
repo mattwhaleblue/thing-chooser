@@ -56,6 +56,7 @@ const Page = () => {
   };
 
   const onSubmit = (data: Schema) => {
+    console.log('data', data)
     router.push(
       `/futureme/image?name=${data.name}&age=${data.age}&height=${data.height}&weight=${data.weight}&activity=${data.activity}`
     );

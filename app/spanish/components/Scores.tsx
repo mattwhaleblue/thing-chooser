@@ -3,10 +3,16 @@ import { createScoresArray } from "../utils";
 type Props = {
   currentScore: number;
   inARow: number;
+  highestInARow: number;
   scores: ReturnType<typeof createScoresArray>;
 };
 
-export const Scores = ({ inARow, currentScore, scores }: Props) => {
+export const Scores = ({
+  inARow,
+  highestInARow,
+  currentScore,
+  scores,
+}: Props) => {
   const topScore = scores.reduce((acc, curr) => {
     if (curr.score > acc) {
       return curr.score;
@@ -42,6 +48,10 @@ export const Scores = ({ inARow, currentScore, scores }: Props) => {
       <div className="space-y-2">
         <p className="text-xl">In A Row</p>
         <p className="text-6xl">{inARow}</p>
+      </div>
+      <div className="space-y-2">
+        <p className="text-xl">Highest In A Row</p>
+        <p className="text-6xl">{highestInARow}</p>
       </div>
       <div className="space-y-2">
         <p className="text-xl">Top Score</p>
